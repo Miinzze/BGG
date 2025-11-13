@@ -15,7 +15,7 @@
 
 // Cache-Verzeichnis für minifizierte Dateien
 define('MINIFY_CACHE_DIR', __DIR__ . '/cache/minified');
-define('MINIFY_ENABLED', true); // Auf false für Entwicklung
+define('MINIFY_ENABLED', false); // DEAKTIVIERT - MIME-Type Probleme auf Live-Server
 define('USE_SERVE_PHP', true); // true = via serve.php (sicherer MIME-Type), false = direkter Pfad
 
 // Stelle sicher dass Cache-Verzeichnis existiert
