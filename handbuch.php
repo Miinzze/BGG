@@ -3115,7 +3115,18 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                     </ul>
                 </li>
             </ol>
+        </div>
+        <?php endif; ?>
 
+        <!-- ==================== ANHANG: GLOSSAR ==================== -->
+        <h2>B. Glossar</h2>
+        <table>
+            <tr>
+                <th>Begriff</th>
+                <th>Beschreibung</th>
+            </tr>
+            <tr>
+                <td>QR-Code</td>
                 <td>Quick Response Code - Zweidimensionaler Barcode</td>
             </tr>
             <tr>
