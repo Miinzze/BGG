@@ -600,8 +600,17 @@ $showMessages = !empty($settings['show_system_messages']);
         
         let icon = availableIcon; // Default
 
-        // Prüfen ob Gerät fertig ist (is_finished)
-        if (marker.is_finished == 1) {
+        // PRIORITÄT 1: Spezielle Status (höchste Priorität)
+        if (marker.rental_status === 'auf_messe') {
+            icon = messeIcon;
+        } else if (marker.rental_status === 'reparatur') {
+            icon = repairIcon;
+        } else if (marker.rental_status === 'wartung') {
+            icon = maintenanceIcon;
+        } else if (marker.rental_status === 'vermietet') {
+            icon = rentedIcon;
+        // PRIORITÄT 2: Flags (mittlere Priorität)
+        } else if (marker.is_finished == 1) {
             icon = finishedIcon;
         } else if (marker.is_customer_device) {
             icon = customerIcon;
@@ -609,15 +618,8 @@ $showMessages = !empty($settings['show_system_messages']);
             icon = multideviceIcon;
         } else if (marker.is_storage) {
             icon = storageIcon;
-        } else if (marker.rental_status === 'vermietet') {
-            icon = rentedIcon;
-        } else if (marker.rental_status === 'wartung') {
-            icon = maintenanceIcon;
-        } else if (marker.rental_status === 'reparatur') {
-            icon = repairIcon;
-        } else if (marker.rental_status === 'auf_messe') {
-            icon = messeIcon;
         }
+        // Falls nichts zutrifft: availableIcon (default)
         
         const mapMarker = L.marker([marker.latitude, marker.longitude], { icon: icon })
             .addTo(map)
