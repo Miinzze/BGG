@@ -1610,17 +1610,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Nutzen Sie die Volltext-Suche in PDF-Dokumenten</li>
         </ul>
 
-        <h2>7.6 Versionierung</h2>
-        <p>
-            Das System verwaltet automatisch alle Versionen eines Dokuments:
-        </p>
-        <ul>
-            <li>Jede Änderung erstellt eine neue Version</li>
-            <li>Alte Versionen bleiben verfügbar</li>
-            <li>Versionsnummer wird automatisch hochgezählt</li>
-            <li>Vergleichen Sie Versionen direkt im System</li>
-        </ul>
-
 
         <div class="page-number">Seite 7</div>
 
@@ -2420,85 +2409,44 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Seitennummerierung</li>
         </ul>
 
-        <h2>15.5 Automatische Berichte</h2>
+        <h2>15.5 Datenexport</h2>
         <p>
-            Planen Sie regelmäßige Berichterstellung:
+            Das System bietet verschiedene Export-Funktionen für Ihre Daten:
         </p>
+        <ul>
+            <li><strong>Marker-Export:</strong> export_markers.php</li>
+            <li><strong>Wartungs-Export:</strong> export_maintenance.php</li>
+            <li><strong>Nutzungsstatistiken:</strong> export_usage_stats.php</li>
+        </ul>
 
-        <h3>15.5.1 Berichtsplan erstellen</h3>
-        <ol>
-            <li>Öffnen Sie einen gespeicherten Bericht</li>
-            <li>Klicken Sie auf <strong>"Automatisierung"</strong></li>
-            <li>Wählen Sie Intervall:
-                <ul>
-                    <li>Täglich</li>
-                    <li>Wöchentlich (mit Wochentag)</li>
-                    <li>Monatlich (mit Tag im Monat)</li>
-                    <li>Quartalsweise</li>
-                    <li>Jährlich</li>
-                </ul>
-            </li>
-            <li>Definieren Sie Empfänger (E-Mail-Adressen)</li>
-            <li>Wählen Sie Format (PDF, Excel, CSV)</li>
-            <li>Aktivieren Sie den Berichtsplan</li>
-        </ol>
-
-        <h3>15.5.2 Vorteile automatischer Berichte</h3>
-        <div class="info-box success">
-            <h4>✅ Automatische Berichte nutzen</h4>
-            <ul>
-                <li>Zeit sparen durch Automatisierung</li>
-                <li>Regelmäßige Information der Geschäftsleitung</li>
-                <li>Keine Berichte vergessen</li>
-                <li>Konsistente Dokumentation</li>
-                <li>Compliance-Anforderungen erfüllen</li>
-            </ul>
-        </div>
-
-        <h2>15.6 Dashboard-Widgets</h2>
+        <h3>15.5.1 Marker exportieren</h3>
         <p>
-            Fügen Sie Berichts-Widgets zu Ihrem Dashboard hinzu:
+            Exportieren Sie Ihre Marker-Daten:
         </p>
         <ol>
-            <li>Klicken Sie auf <strong>"Dashboard anpassen"</strong></li>
-            <li>Wählen Sie <strong>"Widget hinzufügen"</strong></li>
-            <li>Wählen Sie einen Bericht oder eine Statistik</li>
-            <li>Konfigurieren Sie die Anzeige:
+            <li>Navigieren Sie zu <strong>"Marker → Export"</strong></li>
+            <li>Wählen Sie Filter (optional):
                 <ul>
-                    <li>Diagrammtyp (Balken, Linie, Kuchen)</li>
+                    <li>Kategorie</li>
+                    <li>Status</li>
                     <li>Zeitraum</li>
-                    <li>Größe</li>
                 </ul>
             </li>
-            <li>Positionieren Sie das Widget</li>
+            <li>Wählen Sie Format (Excel, CSV)</li>
+            <li>Klicken Sie auf <strong>"Export starten"</strong></li>
+            <li>Die Datei wird heruntergeladen</li>
         </ol>
 
-        <h2>15.6 Datenexport</h2>
-        
-        <h3>15.6.1 Vollständiger Datenexport</h3>
+        <h3>15.5.2 Wartungs-Export</h3>
         <p>
-            Exportieren Sie alle Systemdaten auf einmal:
+            Exportieren Sie Wartungshistorien über <strong>export_maintenance.php</strong>.
+            Wählen Sie Zeitraum und Format.
         </p>
-        <ol>
-            <li>Navigieren Sie zu <strong>"Einstellungen → Datenexport"</strong></li>
-            <li>Wählen Sie zu exportierende Bereiche:
-                <ul>
-                    <li>Alle Marker</li>
-                    <li>Wartungshistorie</li>
-                    <li>Dokumente</li>
-                    <li>GPS-Tracks</li>
-                    <li>Benutzer und Rollen</li>
-                </ul>
-            </li>
-            <li>Wählen Sie Format (ZIP-Archiv mit Excel/CSV)</li>
-            <li>Klicken Sie auf <strong>"Export starten"</strong></li>
-            <li>Download-Link wird per E-Mail zugesendet</li>
-        </ol>
 
         <div class="info-box warning">
             <h4>⚠️ Datenschutz beachten</h4>
             <p>
-                Exportierte Daten können sensible Informationen enthalten. Behandeln Sie 
+                Exportierte Daten können sensible Informationen enthalten. Behandeln Sie
                 Exports vertraulich und löschen Sie nicht benötigte Dateien sicher.
             </p>
         </div>
@@ -2668,18 +2616,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Imperial (mi, ft, lb)</li>
         </ul>
 
-        <h2>17.5 Dashboard-Anpassung</h2>
-        <p>
-            Personalisieren Sie Ihr Dashboard:
-        </p>
-        <ol>
-            <li>Klicken Sie auf <strong>"Dashboard anpassen"</strong></li>
-            <li>Verschieben Sie Widgets per Drag & Drop</li>
-            <li>Ändern Sie Widget-Größen</li>
-            <li>Fügen Sie neue Widgets hinzu oder entfernen Sie welche</li>
-            <li>Speichern Sie das Layout</li>
-        </ol>
-
         <h2>17.5 Digitale Unterschrift</h2>
         <p>
             Hinterlegen Sie Ihre digitale Unterschrift für Wartungsberichte:
@@ -2761,12 +2697,18 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li>Löschen Sie Benutzer (nur wenn keine Zuordnungen bestehen)</li>
             </ul>
 
-            <h3>17.2.3 Massenimport</h3>
+            <h2>17.3 Rollenverwaltung</h2>
             <p>
-                Importieren Sie mehrere Benutzer gleichzeitig:
+                Verwalten Sie Benutzerrollen und Berechtigungen:
             </p>
-            <ol>
-                <li>Laden Sie die Excel-Vorlage herunter</li>
+
+            <h3>17.3.1 Verfügbare System-Rollen</h3>
+            <table>
+                <tr>
+                    <th>Rolle</th>
+                    <th>Beschreibung</th>
+                </tr>
+                <tr>
                     <td>Administrator</td>
                     <td>Vollzugriff auf alle Funktionen</td>
                 </tr>
@@ -2793,10 +2735,9 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li>Navigieren Sie zu <strong>"Administration → Rollen"</strong></li>
                 <li>Klicken Sie auf <strong>"Neue Rolle"</strong></li>
                 <li>Geben Sie einen Namen ein</li>
-                <li>Wählen Sie Berechtigungen:
-                    <ul>
-                        <li>✅ Marker anzeigen</li>
-            </ul>
+                <li>Wählen Sie die gewünschten Berechtigungen aus</li>
+                <li>Speichern Sie die Rolle</li>
+            </ol>
 
             <h2>17.4 Kategorien verwalten</h2>
             
@@ -2805,18 +2746,15 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li>Navigieren Sie zu <strong>"Administration → Kategorien"</strong></li>
                 <li>Klicken Sie auf <strong>"Neue Kategorie"</strong></li>
                 <li>Geben Sie einen Namen ein (z.B. "Baumaschinen")</li>
-                <li>Wählen Sie ein Icon</li>
+                <li>Wählen Sie ein Icon (FontAwesome oder eigenes Bild)</li>
                 <li>Definieren Sie eine Farbe</li>
-                <li>Erstellen Sie Unterkategorien (optional)</li>
                 <li>Speichern Sie die Kategorie</li>
             </ol>
 
-            <h3>17.4.2 Kategorien organisieren</h3>
+            <h3>17.4.2 Kategorien bearbeiten und löschen</h3>
             <ul>
-                <li>Verschieben Sie Kategorien per Drag & Drop</li>
-                <li>Erstellen Sie Hierarchien (Haupt- und Unterkategorien)</li>
-                <li>Fusionieren Sie ähnliche Kategorien</li>
-                <li>Löschen Sie ungenutzte Kategorien</li>
+                <li>Bearbeiten Sie Kategorie-Namen, Icons und Farben</li>
+                <li>Löschen Sie ungenutzte Kategorien (System-Kategorien können nicht gelöscht werden)</li>
             </ul>
 
             <h2>17.5 Benutzerdefinierte Felder</h2>
@@ -2826,14 +2764,15 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             
             <h3>17.5.1 Feldtypen</h3>
             <ul>
-                <li><strong>Text:</strong> Einzeilige Texteingabe</li>
+                <li><strong>Text:</strong> Einzeilige Texteingabe (auch für E-Mail, URL, Telefon)</li>
                 <li><strong>Textarea:</strong> Mehrzeiliger Text</li>
                 <li><strong>Zahl:</strong> Numerische Werte</li>
-                <li><strong>Datum:</strong> Datumsfeld</li>
-                <li><strong>Auswahl:</strong> Dropdown-Menü</li>
-                <li><strong>Mehrfachauswahl:</strong> Checkboxen</li>
-                <li><strong>Ja/Nein:</strong> Boolean-Feld</li>
+                <li><strong>Datum/Zeit:</strong> Datumsfeld, Uhrzeitfeld oder kombiniert</li>
+                <li><strong>Dropdown:</strong> Auswahlmenü mit einer Option</li>
+                <li><strong>Radio Buttons:</strong> Optionsgruppe mit Einfachauswahl</li>
+                <li><strong>Checkboxen:</strong> Mehrfachauswahl-Optionen</li>
                 <li><strong>Datei:</strong> Datei-Upload</li>
+                <li><strong>Farbe:</strong> Farbauswahl mit Color-Picker</li>
             </ul>
 
             <h3>17.5.2 Feld hinzufügen</h3>
@@ -2842,83 +2781,14 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li>Klicken Sie auf <strong>"Neues Feld"</strong></li>
                 <li>Konfigurieren Sie:
                     <ul>
-                        <li>Feldname</li>
-                        <li>Feldtyp</li>
+                        <li>Feldname (technischer Name, nur Kleinbuchstaben und Unterstriche)</li>
+                        <li>Beschriftung (Anzeigename für Benutzer)</li>
+                        <li>Feldtyp (siehe oben)</li>
                         <li>Pflichtfeld? (Ja/Nein)</li>
-                        <li>Validierungsregeln</li>
-                        <li>Standardwert</li>
-                        <li>Hilfetext</li>
+                        <li>Bei Auswahl-Feldern: Optionen (eine pro Zeile)</li>
                     </ul>
                 </li>
-                <li>Weisen Sie das Feld Kategorien zu</li>
                 <li>Speichern Sie das Feld</li>
-            </ol>
-
-            <h2>17.6 E-Mail-Vorlagen</h2>
-            <p>
-                Passen Sie alle System-E-Mails an:
-            </p>
-            
-            <h3>17.6.1 Verfügbare Vorlagen</h3>
-            <ul>
-                <li>Willkommens-E-Mail für neue Benutzer</li>
-                <li>Passwort-Reset</li>
-                <li>Wartungserinnerung</li>
-                <li>Ablaufendes Dokument</li>
-                <li>Automatische Berichte</li>
-            </ul>
-
-            <h3>17.6.2 Vorlage bearbeiten</h3>
-            <ol>
-                <li>Wählen Sie eine Vorlage aus</li>
-
-            <h2>17.7 Backup und Wiederherstellung</h2>
-            
-            <h3>17.7.1 Automatische Backups</h3>
-            <ol>
-                <li>Navigieren Sie zu <strong>"Administration → Backup"</strong></li>
-                <li>Aktivieren Sie automatische Backups</li>
-                <li>Konfigurieren Sie:
-                    <ul>
-                        <li>Backup-Zeitplan (täglich, wöchentlich)</li>
-                        <li>Aufbewahrungsdauer (z.B. 30 Tage)</li>
-                        <li>Speicherort (lokal, Cloud)</li>
-                        <li>Benachrichtigung bei Fehler</li>
-                    </ul>
-                </li>
-            </ol>
-
-            <h3>17.7.2 Manuelles Backup</h3>
-            <ol>
-                <li>Klicken Sie auf <strong>"Backup jetzt erstellen"</strong></li>
-                <li>Wählen Sie zu sichernde Bereiche:
-                    <ul>
-                        <li>Datenbank</li>
-                        <li>Hochgeladene Dateien</li>
-                        <li>Systemkonfiguration</li>
-                    </ul>
-                </li>
-                <li>Warten Sie auf Abschluss</li>
-                <li>Laden Sie das Backup herunter</li>
-            </ol>
-
-            <h3>17.7.3 Wiederherstellung</h3>
-            <div class="info-box danger">
-                <h4>⚠️ WICHTIG: Vor Wiederherstellung</h4>
-                <ul>
-                    <li>Erstellen Sie immer ein aktuelles Backup</li>
-                    <li>Informieren Sie alle Benutzer</li>
-                    <li>Planen Sie ausreichend Ausfallzeit ein</li>
-                    <li>Testen Sie die Wiederherstellung in Testumgebung</li>
-                </ul>
-            </div>
-
-            <ol>
-                <li>Wählen Sie ein Backup aus der Liste</li>
-                <li>Klicken Sie auf <strong>"Wiederherstellen"</strong></li>
-                <li>Bestätigen Sie die Wiederherstellung</li>
-                <li>Warten Sie auf Abschluss (kann einige Minuten dauern)</li>
-                <li>System wird automatisch neu gestartet</li>
             </ol>
 
             <h2>17.6 Aktivitätsprotokolle</h2>
@@ -2952,31 +2822,31 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             </ol>
 
             <h2>17.9 Systemleistung</h2>
-            
+
             <h3>17.9.1 Performance-Monitor</h3>
             <p>
-                Überwachen Sie die Systemleistung in Echtzeit:
+                Überwachen Sie Systemleistung und Datenbank-Performance:
             </p>
             <ul>
-                <li>CPU-Auslastung</li>
-                <li>Speicherverbrauch</li>
-                <li>Datenbankgröße</li>
-                <li>Anzahl aktiver Benutzer</li>
-                <li>Durchschnittliche Antwortzeit</li>
+                <li><strong>Datenbank-Größen:</strong> Zeigt Speicherverbrauch aller Tabellen</li>
+                <li><strong>Query-Performance:</strong> Misst Ausführungszeit wichtiger Datenbankabfragen</li>
+                <li><strong>Cache-Statistiken:</strong> Zeigt Anzahl und Größe gecachter Einträge</li>
+                <li><strong>System-Konfiguration:</strong> PHP-Version, Memory Limit, OPcache-Status</li>
             </ul>
+            <p>
+                Zugriff über <strong>"Administration → Performance-Monitor"</strong>
+            </p>
 
             <h3>17.9.2 Cache-Verwaltung</h3>
-            <ol>
-                <li>Navigieren Sie zu <strong>"Administration → System-Cache"</strong></li>
-                <li>Zeigen Sie Cache-Statistiken an</li>
-                <li>Leeren Sie Cache bei Bedarf:
-                    <ul>
-                        <li>Seiten-Cache</li>
-                        <li>Datenbank-Cache</li>
-                        <li>Bild-Cache</li>
-                    </ul>
-                </li>
-            </ol>
+            <p>
+                Der Performance-Monitor bietet folgende Cache-Funktionen:
+            </p>
+            <ul>
+                <li><strong>Cache-Statistiken anzeigen:</strong> Anzahl und Größe aller Cache-Dateien</li>
+                <li><strong>Alle Caches leeren:</strong> Entfernt alle gecachten Daten</li>
+                <li><strong>Abgelaufene Caches löschen:</strong> Entfernt nur veraltete Cache-Einträge</li>
+                <li><strong>Tabellen analysieren:</strong> Aktualisiert Datenbank-Statistiken für bessere Performance</li>
+            </ul>
         </div>
         <?php endif; ?>
 
