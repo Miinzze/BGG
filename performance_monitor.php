@@ -33,11 +33,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     if (isset($_POST['analyze_tables'])) {
-        $tables = ['markers', 'activity_log', 'maintenance_history', 'users', 'marker_serial_numbers'];
-        foreach ($tables as $table) {
-            $pdo->exec("ANALYZE TABLE $table");
+        try {
+            $tables = ['markers', 'activity_log', 'maintenance_history', 'users', 'marker_serial_numbers'];
+            foreach ($tables as $table) {
+                // Use query() and fetchAll() instead of exec() to avoid unbuffered query issues
+                $stmt = $pdo->query("ANALYZE TABLE `$table`");
+                $stmt->fetchAll(); // Fetch results to clear buffer
+            }
+            $_SESSION['success_message'] = 'Tabellen-Statistiken aktualisiert!';
+        } catch (PDOException $e) {
+            $_SESSION['error_message'] = 'Fehler beim Analysieren: ' . $e->getMessage();
         }
-        $_SESSION['success_message'] = 'Tabellen-Statistiken aktualisiert!';
         header('Location: performance_monitor.php');
         exit;
     }
@@ -500,15 +506,17 @@ $queryBenchmarks['cached_categories'] = round((microtime(true) - $start) * 1000,
                 <?php elseif ($hitRate >= 80): ?>
                     <li class="status-good">✓ Exzellente Cache Hit Rate!</li>
                 <?php endif; ?>
-                
-                <?php foreach ($dbStats['tables'] as $table): ?>
-                    <?php if ($table['rows'] > 100000 && $table['index_size_mb'] < ($table['size_mb'] * 0.1)): ?>
-                        <li class="status-warning">
-                            ⚠️ Tabelle "<?= $table['name'] ?>" hat viele Zeilen aber wenig Indizes. 
-                            Prüfe ob zusätzliche Indizes sinnvoll sind.
-                        </li>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+
+                <?php if (isset($dbStats['tables']) && is_array($dbStats['tables'])): ?>
+                    <?php foreach ($dbStats['tables'] as $table): ?>
+                        <?php if ($table['rows'] > 100000 && $table['index_size_mb'] < ($table['size_mb'] * 0.1)): ?>
+                            <li class="status-warning">
+                                ⚠️ Tabelle "<?= $table['name'] ?>" hat viele Zeilen aber wenig Indizes.
+                                Prüfe ob zusätzliche Indizes sinnvoll sind.
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
