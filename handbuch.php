@@ -446,7 +446,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li><a href="#kapitel-10">10. Bug-Tracking und Feedback</a></li>
                 <li><a href="#kapitel-11">11. Lead-Verwaltung und Interessenten</a></li>
                 <li><a href="#kapitel-12">12. Öffentliche Ansicht und Sharing</a></li>
-                <li><a href="#kapitel-13">13. Inaktive Marker-Verwaltung</a></li>
+                <li><a href="#kapitel-13">13. Nicht-aktivierte Marker</a></li>
                 <li><a href="#kapitel-14">14. Berichte und Exports</a></li>
                 <li><a href="#kapitel-15">15. Kalender und Termine</a></li>
                 <li><a href="#kapitel-16">16. Benutzereinstellungen</a></li>
@@ -2315,147 +2315,32 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
 
         <div class="page-number">Seite 12</div>
 
-        <!-- ==================== KAPITEL 13: INAKTIVE MARKER ==================== -->
-        <h1 id="kapitel-13">13. Inaktive Marker-Verwaltung</h1>
+        <!-- ==================== KAPITEL 13: NICHT-AKTIVIERTE MARKER ==================== -->
+        <h1 id="kapitel-13">13. Nicht-aktivierte Marker</h1>
 
-        <h2>13.1 Was sind inaktive Marker?</h2>
+        <h2>13.1 Was sind nicht-aktivierte Marker?</h2>
         <p>
-            Inaktive Marker sind Geräte, die vorübergehend oder dauerhaft nicht im System 
-            aktiv sind, aber nicht gelöscht werden sollen. Dies ist nützlich für:
+            Nicht-aktivierte Marker sind Geräte, die erstellt wurden, aber noch nie aktiviert wurden.
+            Diese erscheinen in der speziellen Ansicht "Nicht-aktivierte Marker".
         </p>
-        <ul>
-            <li>Ausgemusterte Geräte (Archivierung)</li>
-            <li>Saisonal genutzte Geräte</li>
-            <li>Geräte in Langzeitreparatur</li>
-            <li>Verkaufte Geräte (Historische Referenz)</li>
-            <li>Testgeräte</li>
-        </ul>
 
-        <h2>13.2 Marker deaktivieren</h2>
-        
-        <h3>13.2.1 Einzelnen Marker deaktivieren</h3>
+        <h2>13.2 Nicht-aktivierte Marker anzeigen</h2>
+        <ol>
+            <li>Navigieren Sie zu <strong>"Marker → Nicht-aktiviert"</strong> in der Navigation</li>
+            <li>Sie sehen alle Marker mit <code>is_activated = 0</code></li>
+            <li>Nutzen Sie die Suchfunktion um spezifische Marker zu finden</li>
+            <li>Filtern Sie nach Kategorie</li>
+        </ol>
+
+        <h2>13.3 Marker aktivieren</h2>
+        <p>
+            Um einen nicht-aktivierten Marker zu aktivieren:
+        </p>
         <ol>
             <li>Öffnen Sie den Marker</li>
-            <li>Klicken Sie auf <strong>"Deaktivieren"</strong></li>
-            <li>Geben Sie einen Grund an:
-                <ul>
-                    <li>Verkauft</li>
-                    <li>Ausgemustert</li>
-                    <li>Saisonal nicht genutzt</li>
-                    <li>In Reparatur</li>
-                    <li>Sonstiges (Freitext)</li>
-                </ul>
-            </li>
-            <li>Optional: Datum der Deaktivierung</li>
-            <li>Bestätigen Sie die Deaktivierung</li>
-        </ol>
-
-        <h3>13.2.2 Massendeaktivierung</h3>
-        <p>
-            Deaktivieren Sie mehrere Marker gleichzeitig:
-        </p>
-        <ol>
-            <li>Wählen Sie Marker in der Liste</li>
-            <li>Klicken Sie auf <strong>"Massenbearbeitung"</strong></li>
-            <li>Wählen Sie <strong>"Deaktivieren"</strong></li>
-            <li>Geben Sie einen gemeinsamen Grund an</li>
-            <li>Bestätigen Sie</li>
-        </ol>
-
-        <h2>13.3 Inaktive Marker verwalten</h2>
-        
-        <h3>13.3.1 Inaktive-Marker-Ansicht</h3>
-        <ol>
-                <td>Vollständig erhalten (temporär)</td>
-            </tr>
-            <tr>
-                <td>Sichtbarkeit</td>
-                <td>In Inaktiv-Ansicht</td>
-                <td>In Papierkorb-Ansicht</td>
-            </tr>
-            <tr>
-                <td>Wiederherstellung</td>
-                <td>Jederzeit reaktivierbar</td>
-                <td>30 Tage wiederherstellbar</td>
-            </tr>
-            <tr>
-                <td>Dashboard</td>
-                <td>Nicht in Statistiken</td>
-                <td>Nicht in Statistiken</td>
-            </tr>
-            <tr>
-                <td>GPS-Tracking</td>
-                <td>Gestoppt</td>
-                <td>Gestoppt</td>
-            </tr>
-            <tr>
-                <td>Historie</td>
-                <td>Einsehbar</td>
-                <td>Einsehbar</td>
-            </tr>
-        </table>
-
-        <div class="info-box">
-            <h4>💡 Wann was verwenden?</h4>
-            <ul>
-                <li><strong>Inaktiv setzen:</strong> Wenn Sie das Gerät eventuell wieder benötigen 
-                    oder aus historischen Gründen behalten möchten</li>
-                <li><strong>In Papierkorb:</strong> Wenn Sie das Gerät definitiv nicht mehr 
-                    benötigen und es manuell endgültig löschen möchten</li>
-            </ul>
-        </div>
-
-        <h2>13.5 Inaktive Marker Berichte</h2>
-        
-        <h3>13.5.1 Auswertungen</h3>
-        <p>
-            Erstellen Sie Berichte über inaktive Marker:
-        </p>
-        <ul>
-            <li>Anzahl inaktiver Marker pro Kategorie</li>
-            <li>Deaktivierungsgründe (Verteilung)</li>
-            <li>Durchschnittliche Inaktivitätsdauer</li>
-            <li>Wert der inaktiven Geräte</li>
-            <li>Reaktivierungsrate</li>
-        </ul>
-
-        <h3>13.5.2 Automatische Deaktivierung</h3>
-        <p>
-            Konfigurieren Sie Regeln für automatische Deaktivierung:
-        </p>
-        <ol>
-            <li>Navigieren Sie zu <strong>"Einstellungen → Automatisierung"</strong></li>
-            <li>Erstellen Sie eine Regel:
-                <ul>
-                    <li>Marker ohne GPS-Update seit X Tagen</li>
-                    <li>Marker mit Status "Außer Betrieb" seit X Tagen</li>
-                    <li>Marker ohne Wartung seit X Monaten</li>
-                </ul>
-            </li>
-            <li>Wählen Sie Aktion: <strong>"Als inaktiv markieren"</strong></li>
-            <li>Optional: E-Mail-Benachrichtigung</li>
-        </ol>
-
-        <h2>13.6 Saisonale Aktivierung/Deaktivierung</h2>
-        
-        <h3>13.6.1 Zeitgesteuerte Deaktivierung</h3>
-        <p>
-            Für saisonal genutzte Geräte (z.B. Winterdienst, Sommerbedarf):
-        </p>
-        <ol>
-            <li>Erstellen Sie eine Gerätegruppe (z.B. "Wintergeräte")</li>
-            <li>Planen Sie automatische Deaktivierung:
-                <ul>
-                    <li>Datum: 31. März jeden Jahres</li>
-                    <li>Aktion: Gruppe deaktivieren</li>
-                </ul>
-            </li>
-            <li>Planen Sie automatische Reaktivierung:
-                <ul>
-                    <li>Datum: 1. November jeden Jahres</li>
-                    <li>Aktion: Gruppe reaktivieren</li>
-                </ul>
-            </li>
+            <li>Bearbeiten Sie den Marker</li>
+            <li>Setzen Sie <code>is_activated = 1</code> in der Datenbank</li>
+            <li>Der Marker erscheint nun in der normalen Marker-Liste</li>
         </ol>
 
         <div class="page-number">Seite 13</div>
