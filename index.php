@@ -524,11 +524,33 @@ $showMessages = !empty($settings['show_system_messages']);
     }).addTo(map);
     
     const markers = <?= json_encode($markers) ?>;
-    
-    // Funktion zum Erstellen von farbigen Marker-Icons
-    function getColoredIcon(color) {
+
+    // Marker-Farben aus Settings laden
+    const markerColors = {
+        available: '<?= $settings['marker_color_available'] ?? '#3388ff' ?>',
+        rented: '<?= $settings['marker_color_rented'] ?? '#ffc107' ?>',
+        maintenance: '<?= $settings['marker_color_maintenance'] ?? '#dc3545' ?>',
+        repair: '<?= $settings['marker_color_repair'] ?? '#fd7e14' ?>',
+        storage: '<?= $settings['marker_color_storage'] ?? '#28a745' ?>',
+        multidevice: '<?= $settings['marker_color_multidevice'] ?? '#667eea' ?>',
+        customer: '<?= $settings['marker_color_customer'] ?? '#17a2b8' ?>',
+        finished: '<?= $settings['marker_color_finished'] ?? '#6c757d' ?>'
+    };
+
+    // Funktion zum Erstellen von farbigen SVG-Marker-Icons mit Settings-Farben
+    function createCustomIcon(color) {
+        const svgIcon = `
+            <svg width="25" height="41" viewBox="0 0 25 41" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5 0C5.6 0 0 5.6 0 12.5c0 9.4 12.5 28.5 12.5 28.5S25 21.9 25 12.5C25 5.6 19.4 0 12.5 0z"
+                      fill="${color}" stroke="#fff" stroke-width="1.5"/>
+                <circle cx="12.5" cy="12.5" r="4" fill="#fff" fill-opacity="0.9"/>
+            </svg>
+        `;
+
+        const iconUrl = 'data:image/svg+xml;base64,' + btoa(svgIcon);
+
         return new L.Icon({
-            iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`,
+            iconUrl: iconUrl,
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -536,19 +558,16 @@ $showMessages = !empty($settings['show_system_messages']);
             shadowSize: [41, 41]
         });
     }
-    
-    // Standard Leaflet Icons in verschiedenen Farben
-    const blueIcon = getColoredIcon('blue');      // Verfügbar
-    const goldIcon = getColoredIcon('gold');      // Vermietet
-    const redIcon = getColoredIcon('red');        // Wartung
-    const orangeIcon = getColoredIcon('orange');  // Reparatur
-    const greenIcon = getColoredIcon('green');    // Lager
-    const violetIcon = getColoredIcon('violet');  // Multi-Device
-    const greyIcon = getColoredIcon('grey');      // Finished (Standard)
-    
-    // Finished-Icon aus Settings (kann überschrieben werden)
-    const finishedIconColor = '<?= $settings['marker_icon_finished'] ?? 'grey' ?>'.replace('-check', '');
-    const finishedIcon = getColoredIcon(finishedIconColor);
+
+    // Marker-Icons basierend auf Settings-Farben erstellen
+    const availableIcon = createCustomIcon(markerColors.available);
+    const rentedIcon = createCustomIcon(markerColors.rented);
+    const maintenanceIcon = createCustomIcon(markerColors.maintenance);
+    const repairIcon = createCustomIcon(markerColors.repair);
+    const storageIcon = createCustomIcon(markerColors.storage);
+    const multideviceIcon = createCustomIcon(markerColors.multidevice);
+    const customerIcon = createCustomIcon(markerColors.customer);
+    const finishedIcon = createCustomIcon(markerColors.finished);
     
     // Route zu Marker anzeigen - NEUE AR-NAVIGATION
     function showRouteTo(lat, lng, name) {
@@ -568,21 +587,23 @@ $showMessages = !empty($settings['show_system_messages']);
             return;
         }
         
-        let icon = blueIcon; // Default
-        
+        let icon = availableIcon; // Default
+
         // Prüfen ob Gerät fertig ist (is_finished)
         if (marker.is_finished == 1) {
             icon = finishedIcon;
+        } else if (marker.is_customer_device) {
+            icon = customerIcon;
         } else if (marker.is_multi_device) {
-            icon = violetIcon;
+            icon = multideviceIcon;
         } else if (marker.is_storage) {
-            icon = greenIcon;
+            icon = storageIcon;
         } else if (marker.rental_status === 'vermietet') {
-            icon = goldIcon;
+            icon = rentedIcon;
         } else if (marker.rental_status === 'wartung') {
-            icon = redIcon;
+            icon = maintenanceIcon;
         } else if (marker.rental_status === 'reparatur') {
-            icon = orangeIcon;
+            icon = repairIcon;
         }
         
         const mapMarker = L.marker([marker.latitude, marker.longitude], { icon: icon })
