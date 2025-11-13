@@ -25,7 +25,22 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
         /* ==================== DRUCK-OPTIMIERUNG (DIN A4) ==================== */
         @page {
             size: A4;
-            margin: 2cm;
+            margin: 2cm 2.5cm 3cm 2.5cm; /* Extra Platz unten für Seitenzahl */
+
+            /* Seitenzahlen unten mittig */
+            @bottom-center {
+                content: "Seite " counter(page);
+                font-size: 9pt;
+                color: #666;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+        }
+
+        /* Keine Seitenzahl auf Deckblatt */
+        @page :first {
+            @bottom-center {
+                content: "";
+            }
         }
 
         @media print {
@@ -40,51 +55,142 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 display: none !important;
             }
 
+            /* Deckblatt */
+            .cover-page {
+                page-break-after: always;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .cover-page h1 {
+                font-size: 32pt;
+                margin-bottom: 20pt;
+                page-break-before: avoid;
+                page-break-after: avoid;
+            }
+
+            .cover-page .version {
+                font-size: 18pt;
+                margin-bottom: 10pt;
+            }
+
+            .cover-page .date {
+                font-size: 14pt;
+                color: #666;
+            }
+
+            /* Inhaltsverzeichnis auf einer Seite */
+            .toc {
+                page-break-after: always;
+                font-size: 9pt;
+            }
+
+            .toc h2 {
+                font-size: 18pt;
+                margin-bottom: 15pt;
+                page-break-after: avoid;
+            }
+
+            .toc ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                columns: 1;
+            }
+
+            .toc li {
+                margin: 3pt 0;
+                line-height: 1.3;
+            }
+
+            .toc a {
+                color: #000;
+                text-decoration: none;
+            }
+
+            /* Kapitel-Überschriften */
             h1 {
                 page-break-before: always;
                 margin-top: 0;
                 font-size: 20pt;
-            }
-
-            h1:first-of-type {
-                page-break-before: avoid;
+                margin-bottom: 15pt;
             }
 
             h2 {
                 page-break-after: avoid;
-                font-size: 16pt;
-                margin-top: 1.5em;
+                font-size: 14pt;
+                margin-top: 12pt;
+                margin-bottom: 8pt;
             }
 
             h3 {
                 page-break-after: avoid;
-                font-size: 13pt;
+                font-size: 12pt;
+                margin-top: 10pt;
+                margin-bottom: 6pt;
             }
 
             h4 {
                 page-break-after: avoid;
-                font-size: 11pt;
+                font-size: 10pt;
+                margin-top: 8pt;
+                margin-bottom: 4pt;
             }
 
+            /* Tabellen und Boxen */
             table, figure, .code-block, .info-box {
                 page-break-inside: avoid;
+                margin: 10pt 0;
             }
 
-            .page-number {
-                display: block;
-                text-align: center;
+            table {
                 font-size: 9pt;
-                color: #666;
-                margin-top: 2em;
+            }
+
+            /* Listen kompakter */
+            ul, ol {
+                margin: 8pt 0;
+                padding-left: 20pt;
+            }
+
+            li {
+                margin: 3pt 0;
+            }
+
+            /* Absätze */
+            p {
+                margin: 6pt 0;
+                text-align: justify;
+            }
+
+            /* Admin-Kapitel */
+            .admin-chapter {
+                border: 2pt solid #f44336;
+                padding: 10pt;
+                margin: 10pt 0;
+                background: #ffebee;
+            }
+
+            .admin-badge {
+                background: #f44336;
+                color: white;
+                padding: 2pt 8pt;
+                border-radius: 10pt;
+                font-size: 8pt;
+            }
+
+            /* Alte .page-number Klasse verstecken (werden durch CSS @page counter ersetzt) */
+            .page-number {
+                display: none !important;
             }
 
             a {
                 color: #000;
                 text-decoration: none;
-            }
-
-            .toc a::after {
-                content: leader('.') target-counter(attr(href), page);
             }
         }
 
@@ -193,21 +299,24 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
         /* ==================== TYPOGRAPHY ==================== */
         .cover-page {
             text-align: center;
-            padding: 100px 0;
+            padding: 80px 20px;
             border-bottom: 3px solid #667eea;
             margin-bottom: 40px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
         }
 
         .cover-page h1 {
             font-size: 3em;
             color: #667eea;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .cover-page .version {
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #666;
             margin-bottom: 10px;
+            font-weight: 500;
         }
 
         .cover-page .date {
@@ -422,11 +531,16 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
     <div class="container">
         <!-- ==================== DECKBLATT ==================== -->
         <div class="cover-page">
+            <div style="font-size: 4em; margin-bottom: 30px;">📦</div>
             <h1>BGG Geräte-Verwaltung</h1>
             <div class="version">Systemhandbuch Version 1.0</div>
-            <div class="date"><?= date('d.m.Y') ?></div>
-            <p style="margin-top: 40px; font-size: 1.1em;">
-                Vollständiges Benutzer- und Administratorhandbuch
+            <div class="date">Stand: <?= date('d.m.Y') ?></div>
+            <p style="margin-top: 60px; font-size: 1.1em; line-height: 1.8;">
+                <strong>Vollständiges Benutzer- und Administratorhandbuch</strong><br>
+                für die Verwaltung, Wartung und Verfolgung von Geräten und Assets
+            </p>
+            <p style="margin-top: 40px; color: #999; font-size: 0.9em;">
+                Bleicherode Gerätevermietung GmbH
             </p>
         </div>
 
