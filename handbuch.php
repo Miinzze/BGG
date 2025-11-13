@@ -618,18 +618,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             </ul>
         </div>
 
-        <h2>2.3 Passwort vergessen</h2>
-        <p>
-            Sollten Sie Ihr Passwort vergessen haben:
-        </p>
-        <ol>
-            <li>Klicken Sie auf der Login-Seite auf <strong>"Passwort vergessen?"</strong></li>
-            <li>Geben Sie Ihre E-Mail-Adresse ein</li>
-            <li>Sie erhalten eine E-Mail mit einem Reset-Link</li>
-            <li>Klicken Sie auf den Link und vergeben Sie ein neues Passwort</li>
-        </ol>
-
-        <h2>2.4 Erstanmeldung und Passwortänderung</h2>
+        <h2>2.3 Erstanmeldung und Passwortänderung</h2>
         <p>
             Bei der ersten Anmeldung oder nach einem Administrator-Reset werden Sie aufgefordert, 
             Ihr Passwort zu ändern:
@@ -967,7 +956,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <p>
                 Endgültig gelöschte Marker können NICHT wiederhergestellt werden! 
                 Alle zugehörigen Daten (GPS-Historie, Dokumente, Wartungshistorie) 
-                werden unwiderruflich gelöscht. Der Papierkorb wird automatisch nach 30 Tagen geleert.
+                werden unwiderruflich gelöscht. 
             </p>
         </div>
 
@@ -1607,7 +1596,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Klicken Sie auf das Papierkorb-Symbol</li>
             <li>Bestätigen Sie die Löschung</li>
             <li>Das Dokument wird in den Papierkorb verschoben</li>
-            <li>Endgültige Löschung nach 30 Tagen</li>
+            <li>Kann später endgültig gelöscht werden</li>
         </ol>
 
         <h2>7.5 Dokumentensuche</h2>
@@ -2147,7 +2136,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
 
         <h2>10.5 Ticket-Archiv</h2>
         <p>
-            Erledigte Tickets werden nach 30 Tagen automatisch archiviert, 
+            Erledigte Tickets werden automatisch archiviert und 
             bleiben aber weiterhin einsehbar für:
         </p>
         <ul>
@@ -2177,8 +2166,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Kontaktformular auf Messe-Ansicht ausfüllen</li>
             <li>Interesse an einem Gerät bekunden</li>
             <li>Dokumente anfordern</li>
-            <li>Newsletter abonnieren</li>
-            <li>Rückruf anfordern</li>
         </ul>
 
         <h3>11.2.2 Erfasste Informationen</h3>
@@ -2594,7 +2581,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li><strong>Inaktiv setzen:</strong> Wenn Sie das Gerät eventuell wieder benötigen 
                     oder aus historischen Gründen behalten möchten</li>
                 <li><strong>In Papierkorb:</strong> Wenn Sie das Gerät definitiv nicht mehr 
-                    benötigen und es nach 30 Tagen gelöscht werden soll</li>
+                    benötigen und es manuell endgültig löschen möchten</li>
             </ul>
         </div>
 
@@ -3000,7 +2987,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
         <h3>16.6.2 Erinnerungskanäle</h3>
         <ul>
             <li><strong>E-Mail:</strong> Erinnerung per E-Mail</li>
-            <li><strong>SMS:</strong> Textnachricht (kostenpflichtig)</li>
+            
             <li><strong>Push:</strong> Mobile Benachrichtigung</li>
             <li><strong>Browser:</strong> Desktop-Benachrichtigung</li>
         </ul>
@@ -3209,7 +3196,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                         <li>Systemsprache</li>
                         <li>Zeitzone</li>
                         <li>E-Mail-Server (SMTP)</li>
-                        <li>SMS-Gateway</li>
+                        
                         <li>Backup-Einstellungen</li>
                     </ul>
                 </li>
