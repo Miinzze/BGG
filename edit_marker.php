@@ -567,26 +567,37 @@ $settings = getSystemSettings();
                                 <option value="vermietet">🔴 Vermietet</option>
                                 <option value="wartung">🔧 Wartung</option>
                                 <option value="reparatur">🔨 In Reparatur</option>
+                                <option value="auf_messe">🏢 Auf Messe</option>
                             <?php elseif ($marker['rental_status'] === 'vermietet'): ?>
                                 <option value="verfuegbar">✅ Verfügbar</option>
                                 <option value="vermietet" selected>🔴 Vermietet</option>
                                 <option value="wartung">🔧 Wartung</option>
                                 <option value="reparatur">🔨 In Reparatur</option>
+                                <option value="auf_messe">🏢 Auf Messe</option>
                             <?php elseif ($marker['rental_status'] === 'wartung'): ?>
                                 <option value="verfuegbar">✅ Verfügbar</option>
                                 <option value="vermietet">🔴 Vermietet</option>
                                 <option value="wartung" selected>🔧 Wartung</option>
                                 <option value="reparatur">🔨 In Reparatur</option>
+                                <option value="auf_messe">🏢 Auf Messe</option>
                             <?php elseif ($marker['rental_status'] === 'reparatur'): ?>
                                 <option value="verfuegbar">✅ Verfügbar</option>
                                 <option value="vermietet">🔴 Vermietet</option>
                                 <option value="wartung">🔧 Wartung</option>
                                 <option value="reparatur" selected>🔨 In Reparatur</option>
+                                <option value="auf_messe">🏢 Auf Messe</option>
+                            <?php elseif ($marker['rental_status'] === 'auf_messe'): ?>
+                                <option value="verfuegbar">✅ Verfügbar</option>
+                                <option value="vermietet">🔴 Vermietet</option>
+                                <option value="wartung">🔧 Wartung</option>
+                                <option value="reparatur">🔨 In Reparatur</option>
+                                <option value="auf_messe" selected>🏢 Auf Messe</option>
                             <?php else: ?>
                                 <option value="verfuegbar">✅ Verfügbar</option>
                                 <option value="vermietet">🔴 Vermietet</option>
                                 <option value="wartung">🔧 Wartung</option>
                                 <option value="reparatur">🔨 In Reparatur</option>
+                                <option value="auf_messe">🏢 Auf Messe</option>
                             <?php endif; ?>
                         </select>
                         <small>Status des Geräts (Verfügbar ⇄ Vermietet möglich)</small>

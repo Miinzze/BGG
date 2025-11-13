@@ -76,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_all_settings']))
     $markerColorMultidevice = trim($_POST['marker_color_multidevice'] ?? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)');
     $markerColorCustomer = trim($_POST['marker_color_customer'] ?? '#17a2b8');
     $markerColorRepair = trim($_POST['marker_color_repair'] ?? '#fd7e14');
-    
+    $markerColorMesse = trim($_POST['marker_color_messe'] ?? '#9c27b0');
+
     // ===== INPUT VALIDIERUNG =====
     
     if (!validateStringLength($systemName, 1, 100)) {
@@ -124,7 +125,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_all_settings']))
         saveSetting('marker_color_multidevice', $markerColorMultidevice);
         saveSetting('marker_color_customer', $markerColorCustomer);
         saveSetting('marker_color_repair', $markerColorRepair);
-        
+        saveSetting('marker_color_messe', $markerColorMesse);
+
         // Neue Einstellungen für Geo-Fencing und Routing
         saveSetting('marker_color_finished', trim($_POST['marker_color_finished'] ?? '#6c757d'));
         saveSetting('marker_icon_finished', trim($_POST['marker_icon_finished'] ?? 'grey'));
@@ -419,10 +421,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_all_settings']))
                     <div class="color-picker-row">
                         <label for="marker_color_repair">Reparaturen</label>
                         <input type="color" id="marker_color_repair_picker" value="<?= htmlspecialchars(substr($settings['marker_color_repair'] ?? '#fd7e14', 0, 7)) ?>">
-                        <input type="text" id="marker_color_repair" name="marker_color_repair" 
+                        <input type="text" id="marker_color_repair" name="marker_color_repair"
                                value="<?= htmlspecialchars($settings['marker_color_repair'] ?? '#fd7e14') ?>">
                     </div>
-                    
+
+                    <div class="color-picker-row">
+                        <label for="marker_color_messe">Auf Messe</label>
+                        <input type="color" id="marker_color_messe_picker" value="<?= htmlspecialchars(substr($settings['marker_color_messe'] ?? '#9c27b0', 0, 7)) ?>">
+                        <input type="text" id="marker_color_messe" name="marker_color_messe"
+                               value="<?= htmlspecialchars($settings['marker_color_messe'] ?? '#9c27b0') ?>">
+                    </div>
+
                     <div class="color-picker-row">
                         <label for="marker_color_finished">Fertig / Abholbereit</label>
                         <input type="color" id="marker_color_finished_picker" value="<?= htmlspecialchars(substr($settings['marker_color_finished'] ?? '#6c757d', 0, 7)) ?>">

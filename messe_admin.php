@@ -345,11 +345,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 $_POST['custom_description'] ?: null
             ]);
             
-            // Marker-Status auf "messe" setzen
-            $stmt = $pdo->prepare("UPDATE markers SET rental_status = 'messe' WHERE id = ?");
+            // Marker-Status auf "auf_messe" setzen
+            $stmt = $pdo->prepare("UPDATE markers SET rental_status = 'auf_messe' WHERE id = ?");
             $stmt->execute([$_POST['marker_id']]);
-            
-            $success = "Gerät zur Messe hinzugefügt und Status auf 'messe' gesetzt!";
+
+            $success = "Gerät zur Messe hinzugefügt und Status auf 'Auf Messe' gesetzt!";
         } catch (Exception $e) {
             $error = "Fehler: " . $e->getMessage();
         }

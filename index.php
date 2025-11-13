@@ -189,6 +189,14 @@ $showMessages = !empty($settings['show_system_messages']);
                 <span>Wartung</span>
             </div>
             <div class="legend-item">
+                <div class="legend-color" style="background-color: <?= htmlspecialchars($settings['marker_color_repair'] ?? '#fd7e14') ?>;"></div>
+                <span>In Reparatur</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: <?= htmlspecialchars($settings['marker_color_messe'] ?? '#9c27b0') ?>;"></div>
+                <span>Auf Messe</span>
+            </div>
+            <div class="legend-item">
                 <div class="legend-color" style="background-color: <?= htmlspecialchars($settings['marker_color_storage'] ?? '#28a745') ?>;"></div>
                 <span>Lager</span>
             </div>
@@ -375,7 +383,8 @@ $showMessages = !empty($settings['show_system_messages']);
                 'verfuegbar': 'Verfügbar',
                 'vermietet': 'Vermietet',
                 'wartung': 'In Wartung',
-                'reparatur': 'In Reparatur'
+                'reparatur': 'In Reparatur',
+                'auf_messe': 'Auf Messe'
             }[marker.rental_status] || marker.rental_status;
             
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -531,6 +540,7 @@ $showMessages = !empty($settings['show_system_messages']);
         rented: '<?= $settings['marker_color_rented'] ?? '#ffc107' ?>',
         maintenance: '<?= $settings['marker_color_maintenance'] ?? '#dc3545' ?>',
         repair: '<?= $settings['marker_color_repair'] ?? '#fd7e14' ?>',
+        messe: '<?= $settings['marker_color_messe'] ?? '#9c27b0' ?>',
         storage: '<?= $settings['marker_color_storage'] ?? '#28a745' ?>',
         multidevice: '<?= $settings['marker_color_multidevice'] ?? '#667eea' ?>',
         customer: '<?= $settings['marker_color_customer'] ?? '#17a2b8' ?>',
@@ -564,6 +574,7 @@ $showMessages = !empty($settings['show_system_messages']);
     const rentedIcon = createCustomIcon(markerColors.rented);
     const maintenanceIcon = createCustomIcon(markerColors.maintenance);
     const repairIcon = createCustomIcon(markerColors.repair);
+    const messeIcon = createCustomIcon(markerColors.messe);
     const storageIcon = createCustomIcon(markerColors.storage);
     const multideviceIcon = createCustomIcon(markerColors.multidevice);
     const customerIcon = createCustomIcon(markerColors.customer);
@@ -604,6 +615,8 @@ $showMessages = !empty($settings['show_system_messages']);
             icon = maintenanceIcon;
         } else if (marker.rental_status === 'reparatur') {
             icon = repairIcon;
+        } else if (marker.rental_status === 'auf_messe') {
+            icon = messeIcon;
         }
         
         const mapMarker = L.marker([marker.latitude, marker.longitude], { icon: icon })
@@ -644,6 +657,7 @@ $showMessages = !empty($settings['show_system_messages']);
             case 'vermietet': return 'Vermietet';
             case 'wartung': return 'In Wartung';
             case 'reparatur': return 'In Reparatur';
+            case 'auf_messe': return 'Auf Messe';
             default: return marker.rental_status;
         }
     }

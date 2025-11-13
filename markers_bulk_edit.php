@@ -64,7 +64,7 @@ if (isset($_POST['bulk_update']) && !empty($_POST['selected_markers'])) {
             switch ($updateAction) {
                 case 'change_status':
                     $newStatus = $_POST['new_status'] ?? '';
-                    if (in_array($newStatus, ['verfuegbar', 'vermietet', 'wartung'])) {
+                    if (in_array($newStatus, ['verfuegbar', 'vermietet', 'wartung', 'reparatur', 'auf_messe'])) {
                         $stmt = $pdo->prepare("UPDATE markers SET rental_status = ? WHERE id = ?");
                         $stmt->execute([$newStatus, $markerId]);
                         logActivity('marker_status_changed', "Status auf '$newStatus' geändert (Massenbearbeitung)", $markerId);
