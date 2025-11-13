@@ -824,7 +824,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <tr>
                 <td>Status</td>
                 <td>✅ Ja</td>
-                <td>Verfügbar, Vermietet, In Wartung, etc.</td>
+                <td>Verfügbar, Vermietet, Wartung, Reparatur, Auf Messe</td>
             </tr>
             <tr>
                 <td>Standort</td>
@@ -918,9 +918,9 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <td>Bei Schäden oder Defekten</td>
             </tr>
             <tr>
-                <td>Außer Betrieb</td>
-                <td>Gerät nicht nutzbar</td>
-                <td>Dauerhaft defekt oder ausgemustert</td>
+                <td>Auf Messe</td>
+                <td>Gerät wird auf einer Messe präsentiert</td>
+                <td>Während Messeteilnahme, automatisch gesetzt</td>
             </tr>
             <tr>
                 <td>Lager</td>
