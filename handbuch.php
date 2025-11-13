@@ -2812,26 +2812,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Die Unterschrift wird automatisch bei Wartungen verwendet</li>
         </ol>
 
-        <h2>17.6 API-Zugriff (für Entwickler)</h2>
-        <p>
-            Für Entwickler: Generieren Sie API-Keys für programmischen Zugriff:
-        </p>
-        <ol>
-            <li>Navigieren Sie zu <strong>"Profil → API"</strong></li>
-            <li>Klicken Sie auf <strong>"Neuer API-Key"</strong></li>
-            <li>Geben Sie einen Namen ein (z.B. "Mobile App")</li>
-            <li>Wählen Sie Berechtigungen</li>
-            <li>Kopieren Sie den generierten Key (nur einmal sichtbar!)</li>
-        </ol>
-
-        <div class="info-box warning">
-            <h4>⚠️ API-Key Sicherheit</h4>
-            <p>
-                Behandeln Sie API-Keys wie Passwörter. Teilen Sie sie niemals öffentlich 
-                und rotieren Sie sie regelmäßig. Löschen Sie nicht mehr benötigte Keys.
-            </p>
-        </div>
-
         <div class="page-number">Seite 16</div>
 
         <?php if ($showAdminChapter): ?>
@@ -3069,7 +3049,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li>Dokumenten-Uploads und -Downloads</li>
                 <li>Systemeinstellungs-Änderungen</li>
                 <li>Export von Daten</li>
-                <li>API-Zugriffe</li>
                 <li>Fehlgeschlagene Login-Versuche</li>
             </ul>
 
@@ -3098,7 +3077,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li>Speicherverbrauch</li>
                 <li>Datenbankgröße</li>
                 <li>Anzahl aktiver Benutzer</li>
-                <li>API-Requests pro Minute</li>
                 <li>Durchschnittliche Antwortzeit</li>
             </ul>
 
@@ -3111,7 +3089,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                         <li>Seiten-Cache</li>
                         <li>Datenbank-Cache</li>
                         <li>Bild-Cache</li>
-                        <li>API-Cache</li>
                     </ul>
                 </li>
             </ol>
