@@ -629,7 +629,8 @@ function getRentalStatusLabel($status) {
     $labels = [
         'verfuegbar' => ['label' => 'Verfügbar', 'class' => 'success'],
         'vermietet' => ['label' => 'Vermietet', 'class' => 'warning'],
-        'wartung' => ['label' => 'Wartung', 'class' => 'danger']
+        'wartung' => ['label' => 'Wartung', 'class' => 'danger'],
+        'reparatur' => ['label' => 'In Reparatur', 'class' => 'info']
     ];
     
     return $labels[$status] ?? ['label' => 'Unbekannt', 'class' => 'secondary'];

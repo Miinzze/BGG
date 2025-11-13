@@ -374,7 +374,8 @@ $showMessages = !empty($settings['show_system_messages']);
             const statusText = {
                 'verfuegbar': 'Verfügbar',
                 'vermietet': 'Vermietet',
-                'wartung': 'In Wartung'
+                'wartung': 'In Wartung',
+                'reparatur': 'In Reparatur'
             }[marker.rental_status] || marker.rental_status;
             
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -540,6 +541,7 @@ $showMessages = !empty($settings['show_system_messages']);
     const blueIcon = getColoredIcon('blue');      // Verfügbar
     const goldIcon = getColoredIcon('gold');      // Vermietet
     const redIcon = getColoredIcon('red');        // Wartung
+    const orangeIcon = getColoredIcon('orange');  // Reparatur
     const greenIcon = getColoredIcon('green');    // Lager
     const violetIcon = getColoredIcon('violet');  // Multi-Device
     const greyIcon = getColoredIcon('grey');      // Finished (Standard)
@@ -579,6 +581,8 @@ $showMessages = !empty($settings['show_system_messages']);
             icon = goldIcon;
         } else if (marker.rental_status === 'wartung') {
             icon = redIcon;
+        } else if (marker.rental_status === 'reparatur') {
+            icon = orangeIcon;
         }
         
         const mapMarker = L.marker([marker.latitude, marker.longitude], { icon: icon })
@@ -618,6 +622,7 @@ $showMessages = !empty($settings['show_system_messages']);
             case 'verfuegbar': return 'Verfügbar';
             case 'vermietet': return 'Vermietet';
             case 'wartung': return 'In Wartung';
+            case 'reparatur': return 'In Reparatur';
             default: return marker.rental_status;
         }
     }
