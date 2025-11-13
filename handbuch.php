@@ -1621,25 +1621,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Vergleichen Sie Versionen direkt im System</li>
         </ul>
 
-        <h2>7.7 Ablaufende Dokumente</h2>
-        <p>
-            Für Dokumente mit Ablaufdatum (z.B. Zertifikate):
-        </p>
-        <ul>
-            <li>Automatische Erinnerung 30 Tage vor Ablauf</li>
-            <li>Warnung bei abgelaufenen Dokumenten</li>
-            <li>Optional: Automatische Sperrung des Geräts</li>
-            <li>Dashboard zeigt alle ablaufenden Dokumente</li>
-        </ul>
-
-        <div class="info-box warning">
-            <h4>⚠️ Kritische Dokumente</h4>
-            <p>
-                Markieren Sie wichtige Dokumente als "kritisch" (z.B. TÜV-Abnahmen). 
-                Bei Ablauf dieser Dokumente wird das Gerät automatisch gesperrt, 
-                bis ein neues gültiges Dokument hochgeladen wurde.
-            </p>
-        </div>
 
         <div class="page-number">Seite 7</div>
 
@@ -1702,7 +1683,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
         <ul>
             <li>🔄 <strong>Automatische Rotation</strong> ein/ausschalten</li>
             <li>📐 <strong>Maßanzeigen</strong> einblenden</li>
-            <li>🎨 <strong>Wireframe-Modus</strong> für technische Details</li>
+            
             <li>💡 <strong>Beleuchtung</strong> anpassen</li>
             <li>📸 <strong>Screenshot</strong> erstellen</li>
             <li>🔗 <strong>3D-Modell teilen</strong> (öffentlicher Link)</li>
@@ -1741,44 +1722,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             </ul>
         </div>
 
-        <h2>8.5 Photogrammetrie</h2>
-        <p>
-            Erstellen Sie 3D-Modelle direkt aus Fotos:
-        </p>
-
-        <h3>8.5.1 Fotos für 3D-Rekonstruktion aufnehmen</h3>
-        <ol>
-            <li>Öffnen Sie die <strong>3D-Capture Funktion</strong></li>
-            <li>Fotografieren Sie das Gerät aus allen Winkeln:
-                <ul>
-                    <li>Mindestens 20-30 Fotos</li>
-                    <li>Rundherum um das Objekt</li>
-                    <li>Auch von oben und unten</li>
-                    <li>Überlappung von ca. 60% zwischen Fotos</li>
-                </ul>
-            </li>
-            <li>Laden Sie alle Fotos hoch</li>
-            <li>Starten Sie die <strong>3D-Rekonstruktion</strong></li>
-            <li>Die Verarbeitung kann 10-30 Minuten dauern</li>
-        </ol>
-
-        <h3>8.5.2 Tipps für beste Ergebnisse</h3>
-        <div class="info-box success">
-            <h4>✅ Fotografie-Tipps</h4>
-            <ul>
-                <li>Gleichmäßige Beleuchtung (Tageslicht ideal)</li>
-                <li>Vermeiden Sie Schatten und Reflexionen</li>
-                <li>Objekt sollte gut sichtbar sein</li>
-                <li>Hintergrund möglichst einfach</li>
-                <li>Keine beweglichen Teile während der Aufnahme</li>
-                <li>Fester Standpunkt des Objekts</li>
-            </ul>
-        </div>
-
-        <h2>8.6 3D-Modell teilen</h2>
-        <p>
-            Teilen Sie 3D-Modelle mit externen Personen:
-        </p>
         <ol>
             <li>Öffnen Sie das 3D-Modell</li>
             <li>Klicken Sie auf <strong>"Teilen"</strong></li>
@@ -2230,90 +2173,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <td>Gewonnen</td>
                 <td>Kunde gewonnen</td>
                 <td>In CRM übernehmen</td>
-            </tr>
-            <tr>
-                <td>Verloren</td>
-                <td>Kein Geschäft</td>
-                <td>Grund dokumentieren</td>
-            </tr>
-        </table>
-
-        <h3>11.3.3 Lead bearbeiten</h3>
-        <ol>
-            <li>Öffnen Sie einen Lead</li>
-            <li>Aktualisieren Sie:
-                <ul>
-                    <li>Status</li>
-                    <li>Verantwortlicher Mitarbeiter</li>
-                    <li>Notizen</li>
-                    <li>Nächste Schritte</li>
-                    <li>Follow-up Datum</li>
-                </ul>
-            </li>
-            <li>Speichern Sie die Änderungen</li>
-        </ol>
-
-        <h2>11.4 Lead-Qualifizierung</h2>
-        
-        <h3>11.4.1 Automatische Bewertung</h3>
-        <p>
-            Das System bewertet Leads automatisch nach:
-        </p>
-        <ul>
-            <li><strong>Engagement:</strong> Wie viele Geräte angesehen?</li>
-            <li><strong>Verweildauer:</strong> Wie lange auf der Seite?</li>
-            <li><strong>Downloads:</strong> Dokumente heruntergeladen?</li>
-            <li><strong>Kontaktqualität:</strong> Vollständige Angaben?</li>
-            <li><strong>Firmengröße:</strong> Potenzielle Auftragsgröße</li>
-        </ul>
-
-        <h3>11.4.2 Lead-Score</h3>
-        <p>
-            Leads erhalten einen Score von 0-100:
-        </p>
-        <ul>
-            <li><strong>80-100 Punkte:</strong> 🔥 Hot Lead - Sofort kontaktieren</li>
-            <li><strong>60-79 Punkte:</strong> 🟡 Warm Lead - Innerhalb 24h kontaktieren</li>
-            <li><strong>40-59 Punkte:</strong> 🔵 Cold Lead - Follow-up in 3-5 Tagen</li>
-            <li><strong>0-39 Punkte:</strong> ⚫ Niedriges Interesse</li>
-        </ul>
-
-        <h2>11.5 Lead-Export und CRM-Integration</h2>
-        
-        <h3>11.5.1 Leads exportieren</h3>
-        <ol>
-            <li>Wählen Sie Leads aus (oder alle)</li>
-            <li>Klicken Sie auf <strong>"Exportieren"</strong></li>
-            <li>Wählen Sie Format:
-                <ul>
-                    <li>Excel (.xlsx)</li>
-                    <li>CSV</li>
-                    <li>vCard</li>
-                </ul>
-            </li>
-            <li>Importieren Sie in Ihr CRM-System</li>
-        </ol>
-
-        <h3>11.5.2 E-Mail-Benachrichtigungen</h3>
-        <p>
-            Konfigurieren Sie automatische Benachrichtigungen:
-        </p>
-        <ul>
-            <li>Sofortbenachrichtigung bei neuem Lead</li>
-            <li>Tägliche Zusammenfassung neuer Leads</li>
-            <li>Erinnerung bei ausstehenden Follow-ups</li>
-            <li>Eskalation bei ungekontaktierten Leads</li>
-        </ul>
-
-        <h2>11.6 Lead-Berichte</h2>
-        
-        <h3>11.6.1 Verfügbare Auswertungen</h3>
-        <ul>
-            <li>Leads pro Messe/Event</li>
-            <li>Conversion-Rate nach Quelle</li>
-            <li>Beliebteste Geräte bei Leads</li>
-            <li>Durchschnittliche Bearbeitungszeit</li>
-            <li>Gewonnene vs. verlorene Leads</li>
             <li>ROI pro Messe</li>
         </ul>
 
@@ -2349,8 +2208,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Aktivieren Sie <strong>"Öffentliche Ansicht"</strong></li>
             <li>Konfigurieren Sie Optionen:
                 <ul>
-                    <li><strong>Passwortschutz:</strong> Optional Passwort vergeben</li>
-                    <li><strong>Ablaufdatum:</strong> Link automatisch deaktivieren</li>
                     <li><strong>Ansichtsrechte:</strong> Was darf gesehen werden?</li>
                     <li><strong>Download erlauben:</strong> Dokumente downloadbar?</li>
                     <li><strong>Kontaktformular:</strong> Anfragen ermöglichen?</li>
@@ -2509,43 +2366,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
         
         <h3>13.3.1 Inaktive-Marker-Ansicht</h3>
         <ol>
-            <li>Navigieren Sie zu <strong>"Marker → Inaktive"</strong></li>
-            <li>Sehen Sie alle deaktivierten Marker</li>
-            <li>Filtern Sie nach:
-                <ul>
-                    <li>Deaktivierungsgrund</li>
-                    <li>Datum der Deaktivierung</li>
-                    <li>Kategorie</li>
-                    <li>Letzter Status</li>
-                </ul>
-            </li>
-        </ol>
-
-        <h3>13.3.2 Marker reaktivieren</h3>
-        <ol>
-            <li>Öffnen Sie einen inaktiven Marker</li>
-            <li>Klicken Sie auf <strong>"Reaktivieren"</strong></li>
-            <li>Bestätigen Sie die Reaktivierung</li>
-            <li>Der Marker ist sofort wieder aktiv</li>
-            <li>Alle Daten bleiben erhalten</li>
-        </ol>
-
-        <h2>13.4 Unterschied: Inaktiv vs. Papierkorb</h2>
-        
-        <table>
-            <tr>
-                <th>Merkmal</th>
-                <th>Inaktiv</th>
-                <th>Papierkorb</th>
-            </tr>
-            <tr>
-                <td>Zweck</td>
-                <td>Vorübergehende Deaktivierung</td>
-                <td>Vorbereitung zur Löschung</td>
-            </tr>
-            <tr>
-                <td>Daten</td>
-                <td>Vollständig erhalten</td>
                 <td>Vollständig erhalten (temporär)</td>
             </tr>
             <tr>
@@ -2713,62 +2533,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
         <ul>
             <li>Corporate Design mit eigenem Logo</li>
             <li>Seitennummerierung</li>
-            <li>Inhaltsverzeichnis</li>
-            <li>Diagramme und Grafiken</li>
-            <li>Unterschriftenfeld</li>
-        </ul>
-
-        <h3>15.3.2 Excel-Export</h3>
-        <p>
-            Rohdaten zur weiteren Bearbeitung:
-        </p>
-        <ul>
-            <li>Alle Daten in Tabellenform</li>
-            <li>Formatierte Tabellen mit Formeln</li>
-            <li>Mehrere Arbeitsblätter für komplexe Berichte</li>
-            <li>Pivot-Tabellen vorbereitet</li>
-        </ul>
-
-        <h3>15.3.3 CSV-Export</h3>
-        <p>
-            Einfache Textdateien für Import in andere Systeme:
-        </p>
-        <ul>
-            <li>Kompatibel mit allen Tabellenkalkulationen</li>
-            <li>Ideal für Datenaustausch</li>
-            <li>UTF-8 Encoding für Sonderzeichen</li>
-        </ul>
-
-        <h2>15.4 Benutzerdefinierte Berichte</h2>
-        
-        <h3>15.4.1 Eigenen Bericht erstellen</h3>
-        <ol>
-            <li>Klicken Sie auf <strong>"Neuer Bericht"</strong></li>
-            <li>Geben Sie einen Namen ein</li>
-            <li>Wählen Sie Datenquellen:
-                <ul>
-                    <li>Marker</li>
-                    <li>Wartungen</li>
-                    <li>Dokumente</li>
-                    <li>GPS-Daten</li>
-                    <li>Benutzeraktivitäten</li>
-                </ul>
-            </li>
-            <li>Definieren Sie Spalten und Sortierung</li>
-            <li>Fügen Sie Berechnungen hinzu (Summen, Durchschnitte)</li>
-            <li>Wählen Sie Visualisierungen (Diagramme)</li>
-            <li>Speichern Sie die Berichtsvorlage</li>
-        </ol>
-
-        <h3>15.4.2 Berechnete Felder</h3>
-        <p>
-            Fügen Sie berechnete Werte zu Berichten hinzu:
-        </p>
-        <ul>
-            <li>Summen und Durchschnitte</li>
-            <li>Prozentuale Anteile</li>
-            <li>Differenzen und Trends</li>
-            <li>Benutzerdefinierte Formeln</li>
         </ul>
 
         <h2>15.5 Automatische Berichte</h2>
@@ -2824,9 +2588,9 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Positionieren Sie das Widget</li>
         </ol>
 
-        <h2>15.7 Datenexport</h2>
+        <h2>15.6 Datenexport</h2>
         
-        <h3>15.7.1 Vollständiger Datenexport</h3>
+        <h3>15.6.1 Vollständiger Datenexport</h3>
         <p>
             Exportieren Sie alle Systemdaten auf einmal:
         </p>
@@ -2891,91 +2655,17 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
         <h3>16.2.4 Listenansicht</h3>
         <p>
             Chronologische Liste aller anstehenden Termine.
-        </p>
-
-        <h2>16.3 Termine erstellen</h2>
-        
-        <h3>16.3.1 Manuellen Termin anlegen</h3>
-        <ol>
-            <li>Öffnen Sie den Kalender</li>
-            <li>Klicken Sie auf das gewünschte Datum</li>
-            <li>Füllen Sie das Formular aus:
-                <ul>
-                    <li>Titel</li>
-                    <li>Beschreibung</li>
-                    <li>Datum und Uhrzeit</li>
-                    <li>Dauer</li>
-                    <li>Kategorie</li>
-                    <li>Zugewiesene Geräte</li>
-                    <li>Teilnehmer</li>
-                </ul>
-            </li>
-            <li>Speichern Sie den Termin</li>
-        </ol>
-
         <h3>16.3.2 Automatische Termine</h3>
-        <p>
-            Das System erstellt automatisch Kalendereinträge für:
-        </p>
-        <ul>
-            <li>Geplante Wartungen (aus Wartungsplänen)</li>
-            <li>Vermietungsperioden</li>
-            <li>Ablaufende Zertifikate (30 Tage vor Ablauf)</li>
-            <li>Erinnerungen für Inspektionen</li>
-        </ul>
+        <h1 id="kapitel-14">14. Kalender-Einstellungen</h1>
 
-        <h2>16.4 Outlook-Integration</h2>
+        <h2>14.1 Kalender-Einstellungen</h2>
         <p>
-            Synchronisieren Sie den Systemkalender mit Microsoft Outlook:
+            Konfigurieren Sie Ihre Kalender-Präferenzen für Wartungstermine und Erinnerungen.
         </p>
 
-        <h3>16.4.1 Outlook verbinden</h3>
-        <ol>
-            <li>Navigieren Sie zu <strong>"Einstellungen → Kalender"</strong></li>
-            <li>Klicken Sie auf <strong>"Outlook verbinden"</strong></li>
-            <li>Melden Sie sich mit Ihrem Microsoft-Konto an</li>
-            <li>Erteilen Sie die erforderlichen Berechtigungen</li>
-            <li>Wählen Sie den Synchronisationsmodus:
-                <ul>
-                    <li>Nur lesen (System → Outlook)</li>
-                    <li>Bidirektional (beide Richtungen)</li>
-                </ul>
-            </li>
-        </ol>
-
-        <h3>16.4.2 Synchronisationseinstellungen</h3>
+        <h3>14.1.1 Erinnerungseinstellungen</h3>
         <p>
-            Konfigurieren Sie, was synchronisiert werden soll:
-        </p>
-        <ul>
-            <li>Alle Termine</li>
-            <li>Nur Wartungstermine</li>
-            <li>Nur eigene Termine</li>
-            <li>Termine mit bestimmten Kategorien</li>
-        </ul>
-
-        <h2>16.5 iCal-Feed</h2>
-        <p>
-            Nutzen Sie den iCal-Feed für andere Kalender-Apps:
-        </p>
-        <ol>
-            <li>Öffnen Sie <strong>"Einstellungen → Kalender"</strong></li>
-            <li>Kopieren Sie die iCal-Feed-URL</li>
-            <li>Fügen Sie die URL in Ihrer Kalender-App hinzu:
-                <ul>
-                    <li>Google Kalender</li>
-                    <li>Apple Kalender</li>
-                    <li>Thunderbird</li>
-                    <li>Andere iCal-kompatible Apps</li>
-                </ul>
-            </li>
-        </ol>
-
-        <h2>16.6 Erinnerungen</h2>
-        
-        <h3>16.6.1 Erinnerungen konfigurieren</h3>
-        <p>
-            Für jeden Termin können Sie Erinnerungen einrichten:
+            Wählen Sie, wann Sie an anstehende Wartungen erinnert werden möchten:
         </p>
         <ul>
             <li>5, 15, 30 Minuten vorher</li>
@@ -2984,41 +2674,15 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Benutzerdefinierter Zeitraum</li>
         </ul>
 
-        <h3>16.6.2 Erinnerungskanäle</h3>
+        <h3>14.1.2 Erinnerungskanäle</h3>
         <ul>
             <li><strong>E-Mail:</strong> Erinnerung per E-Mail</li>
-            
             <li><strong>Push:</strong> Mobile Benachrichtigung</li>
             <li><strong>Browser:</strong> Desktop-Benachrichtigung</li>
         </ul>
 
-        <h2>16.7 Termin-Kategorien</h2>
-        
-        <table>
-            <tr>
-                <th>Kategorie</th>
-                <th>Farbe</th>
-                <th>Verwendung</th>
-            </tr>
-            <tr>
-                <td>Wartung</td>
-                <td>🟠 Orange</td>
-                <td>Geplante Wartungen</td>
-            </tr>
-            <tr>
-                <td>Inspektion</td>
-                <td>🟡 Gelb</td>
-                <td>Inspektionstermine</td>
-            </tr>
-            <tr>
-                <td>Vermietung</td>
-                <td>🟢 Grün</td>
-                <td>Übergabe/Rückgabe</td>
-            </tr>
-            <tr>
-                <td>Frist</td>
-                <td>🔴 Rot</td>
-                <td>Ablaufende Dokumente</td>
+        <div class="page-number">Seite 13</div>
+
             </tr>
             <tr>
                 <td>Meeting</td>
@@ -3131,7 +2795,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Speichern Sie das Layout</li>
         </ol>
 
-        <h2>17.6 Digitale Unterschrift</h2>
+        <h2>17.5 Digitale Unterschrift</h2>
         <p>
             Hinterlegen Sie Ihre digitale Unterschrift für Wartungsberichte:
         </p>
@@ -3148,7 +2812,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <li>Die Unterschrift wird automatisch bei Wartungen verwendet</li>
         </ol>
 
-        <h2>17.7 API-Zugriff (für Entwickler)</h2>
+        <h2>17.6 API-Zugriff (für Entwickler)</h2>
         <p>
             Für Entwickler: Generieren Sie API-Keys für programmischen Zugriff:
         </p>
@@ -3238,22 +2902,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             </p>
             <ol>
                 <li>Laden Sie die Excel-Vorlage herunter</li>
-                <li>Füllen Sie die Vorlage mit Benutzerdaten</li>
-                <li>Laden Sie die ausgefüllte Datei hoch</li>
-                <li>Überprüfen Sie die Vorschau</li>
-                <li>Bestätigen Sie den Import</li>
-            </ol>
-
-            <h2>17.3 Rollen und Berechtigungen</h2>
-            
-            <h3>17.3.1 Standard-Rollen</h3>
-            
-            <table>
-                <tr>
-                    <th>Rolle</th>
-                    <th>Berechtigungen</th>
-                </tr>
-                <tr>
                     <td>Administrator</td>
                     <td>Vollzugriff auf alle Funktionen</td>
                 </tr>
@@ -3283,28 +2931,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li>Wählen Sie Berechtigungen:
                     <ul>
                         <li>✅ Marker anzeigen</li>
-                        <li>✅ Marker erstellen</li>
-                        <li>✅ Marker bearbeiten</li>
-                        <li>❌ Marker löschen</li>
-                        <li>✅ Wartung durchführen</li>
-                        <li>❌ Systemeinstellungen</li>
-                        <li>etc.</li>
-                    </ul>
-                </li>
-                <li>Speichern Sie die Rolle</li>
-            </ol>
-
-            <h3>17.3.3 Granulare Berechtigungen</h3>
-            <p>
-                Verfügbare Berechtigungsebenen:
-            </p>
-            <ul>
-                <li><strong>Keine:</strong> Kein Zugriff</li>
-                <li><strong>Lesen:</strong> Nur ansehen</li>
-                <li><strong>Erstellen:</strong> Neue Einträge anlegen</li>
-                <li><strong>Bearbeiten:</strong> Bestehende Einträge ändern</li>
-                <li><strong>Löschen:</strong> Einträge entfernen</li>
-                <li><strong>Verwalten:</strong> Vollzugriff inkl. Berechtigungen</li>
             </ul>
 
             <h2>17.4 Kategorien verwalten</h2>
@@ -3380,27 +3006,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
             <h3>17.6.2 Vorlage bearbeiten</h3>
             <ol>
                 <li>Wählen Sie eine Vorlage aus</li>
-                <li>Bearbeiten Sie:
-                    <ul>
-                        <li>Betreff</li>
-                        <li>E-Mail-Text (HTML-Editor verfügbar)</li>
-                        <li>Platzhalter für dynamische Inhalte</li>
-                    </ul>
-                </li>
-                <li>Testen Sie die Vorlage (Test-E-Mail versenden)</li>
-                <li>Speichern Sie die Änderungen</li>
-            </ol>
-
-            <h3>17.6.3 Verfügbare Platzhalter</h3>
-            <div class="code-block">
-{{user_name}}          - Name des Benutzers
-{{user_email}}         - E-Mail-Adresse
-{{marker_name}}        - Name des Markers
-{{maintenance_date}}   - Wartungsdatum
-{{document_name}}      - Dokumentenname
-{{expiry_date}}        - Ablaufdatum
-{{company_name}}       - Firmenname
-            </div>
 
             <h2>17.7 Backup und Wiederherstellung</h2>
             
@@ -3451,12 +3056,12 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li>System wird automatisch neu gestartet</li>
             </ol>
 
-            <h2>17.8 Aktivitätsprotokolle</h2>
+            <h2>17.6 Aktivitätsprotokolle</h2>
             <p>
                 Überwachen Sie alle Systemaktivitäten:
             </p>
             
-            <h3>17.8.1 Protokollierte Ereignisse</h3>
+            <h3>17.6.1 Protokollierte Ereignisse</h3>
             <ul>
                 <li>Benutzer-Logins und -Logouts</li>
                 <li>Erstellung, Änderung und Löschung von Markern</li>
@@ -3468,7 +3073,7 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 <li>Fehlgeschlagene Login-Versuche</li>
             </ul>
 
-            <h3>17.8.2 Protokolle durchsuchen</h3>
+            <h3>17.6.2 Protokolle durchsuchen</h3>
             <ol>
                 <li>Navigieren Sie zu <strong>"Administration → Aktivitätsprotokolle"</strong></li>
                 <li>Filtern Sie nach:
@@ -3511,175 +3116,6 @@ $showAdminChapter = isset($_SESSION['show_admin_chapter']) ? $_SESSION['show_adm
                 </li>
             </ol>
 
-            <div class="info-box">
-                <h4>💡 Wann Cache leeren?</h4>
-                <ul>
-                    <li>Nach System-Updates</li>
-                    <li>Bei unerwarteten Anzeigeproblemen</li>
-                    <li>Nach Änderungen an Vorlagen</li>
-                    <li>Bei Performance-Problemen</li>
-                </ul>
-            </div>
-
-            <h2>17.10 Systemwartung</h2>
-            
-            <h3>17.10.1 Wartungsmodus</h3>
-            <p>
-                Aktivieren Sie den Wartungsmodus für Updates:
-            </p>
-            <ol>
-                <li>Navigieren Sie zu <strong>"Administration → Wartungsmodus"</strong></li>
-                <li>Klicken Sie auf <strong>"Wartungsmodus aktivieren"</strong></li>
-                <li>Geben Sie eine Nachricht für Benutzer ein</li>
-                <li>Optional: Erlaube Login für Administratoren</li>
-                <li>Führen Sie Wartungsarbeiten durch</li>
-                <li>Deaktivieren Sie den Wartungsmodus</li>
-            </ol>
-
-            <h3>17.10.2 Datenbank-Optimierung</h3>
-            <p>
-                Regelmäßige Datenbankwartung verbessert die Performance:
-            </p>
-            <ol>
-                <li>Navigieren Sie zu <strong>"Administration → Datenbank"</strong></li>
-                <li>Klicken Sie auf <strong>"Optimieren"</strong></li>
-                <li>Warten Sie auf Abschluss</li>
-                <li>Überprüfen Sie den Bericht</li>
-            </ol>
-
-            <h2>17.11 Lizenz und Updates</h2>
-            
-            <h3>17.11.1 Lizenzverwaltung</h3>
-            <ul>
-                <li>Zeigen Sie aktuelle Lizenzinformationen an</li>
-                <li>Überprüfen Sie Nutzungsgrenzen</li>
-                <li>Erneuern Sie die Lizenz</li>
-                <li>Upgraden Sie auf höhere Edition</li>
-            </ul>
-
-            <h3>17.11.2 System-Updates</h3>
-            <ol>
-                <li>Navigieren Sie zu <strong>"Administration → Updates"</strong></li>
-                <li>Prüfen Sie auf verfügbare Updates</li>
-                <li>Lesen Sie die Versionshinweise</li>
-                <li>Erstellen Sie ein Backup</li>
-                <li>Installieren Sie das Update</li>
-                <li>Testen Sie das System nach dem Update</li>
-            </ol>
-
-            <div class="info-box danger">
-                <h4>⚠️ WICHTIG: Vor System-Updates</h4>
-                <ol>
-                    <li>✅ Vollständiges Backup erstellen</li>
-                    <li>✅ Benutzer informieren</li>
-                    <li>✅ Wartungsmodus aktivieren</li>
-                    <li>✅ Versionshinweise lesen</li>
-                    <li>✅ Ausreichend Zeit einplanen</li>
-                </ol>
-            </div>
-
-            <h2>17.12 Support und Fehlerberichte</h2>
-            
-            <h3>17.12.1 Fehlerbericht erstellen</h3>
-            <p>
-                Bei Problemen können Sie einen detaillierten Fehlerbericht erstellen:
-            </p>
-            <ol>
-                <li>Navigieren Sie zu <strong>"Administration → Support"</strong></li>
-                <li>Klicken Sie auf <strong>"Fehlerbericht erstellen"</strong></li>
-                <li>Der Bericht enthält automatisch:
-                    <ul>
-                        <li>Systemkonfiguration</li>
-                        <li>Fehlerprotokolle</li>
-                        <li>Browser-Informationen</li>
-                        <li>Aktuelle Performance-Daten</li>
-                    </ul>
-                </li>
-                <li>Fügen Sie eine Problembeschreibung hinzu</li>
-                <li>Optional: Fügen Sie Screenshots hinzu</li>
-                <li>Senden Sie den Bericht an den Support</li>
-            </ol>
-
-            <h3>17.12.2 Debug-Modus</h3>
-            <p>
-                Für Fehlersuche aktivieren Sie temporär den Debug-Modus:
-            </p>
-            <div class="info-box warning">
-                <h4>⚠️ Achtung</h4>
-                <p>
-                    Der Debug-Modus zeigt detaillierte Fehlerinformationen an und sollte 
-                    NIEMALS im Produktivbetrieb aktiviert bleiben! Deaktivieren Sie ihn 
-                    sofort nach der Fehlersuche.
-                </p>
-            </div>
-        </div>
-        <?php endif; ?>
-
-        <!-- ==================== ANHANG ==================== -->
-        <h1>Anhang</h1>
-
-        <h2>A. Tastenkombinationen</h2>
-        
-        <table>
-            <tr>
-                <th>Tastenkombination</th>
-                <th>Funktion</th>
-            </tr>
-            <tr>
-                <td>Strg + K</td>
-                <td>Schnellsuche öffnen</td>
-            </tr>
-            <tr>
-                <td>Strg + N</td>
-                <td>Neuer Marker</td>
-            </tr>
-            <tr>
-                <td>Strg + S</td>
-                <td>Speichern</td>
-            </tr>
-            <tr>
-                <td>Strg + P</td>
-                <td>Drucken</td>
-            </tr>
-            <tr>
-                <td>Esc</td>
-                <td>Dialog schließen</td>
-            </tr>
-            <tr>
-                <td>F1</td>
-                <td>Hilfe öffnen</td>
-            </tr>
-            <tr>
-                <td>Alt + H</td>
-                <td>Zum Dashboard</td>
-            </tr>
-        </table>
-
-        <h2>B. Glossar</h2>
-        
-        <table>
-            <tr>
-                <th>Begriff</th>
-                <th>Definition</th>
-            </tr>
-            <tr>
-                <td>Asset</td>
-                <td>Vermögensgegenstand, Gerät oder Ausrüstung</td>
-            </tr>
-            <tr>
-                <td>GPS</td>
-                <td>Global Positioning System - Satellitengestützte Positionsbestimmung</td>
-            </tr>
-            <tr>
-                <td>Marker</td>
-                <td>Digitale Repräsentation eines Geräts/Assets im System</td>
-            </tr>
-            <tr>
-                <td>NFC</td>
-                <td>Near Field Communication - Kontaktlose Datenübertragung über kurze Distanz</td>
-            </tr>
-            <tr>
-                <td>QR-Code</td>
                 <td>Quick Response Code - Zweidimensionaler Barcode</td>
             </tr>
             <tr>
