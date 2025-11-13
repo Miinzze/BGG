@@ -16,6 +16,7 @@
 // Cache-Verzeichnis für minifizierte Dateien
 define('MINIFY_CACHE_DIR', __DIR__ . '/cache/minified');
 define('MINIFY_ENABLED', true); // Auf false für Entwicklung
+define('USE_SERVE_PHP', true); // true = via serve.php (sicherer MIME-Type), false = direkter Pfad
 
 // Stelle sicher dass Cache-Verzeichnis existiert
 if (!file_exists(MINIFY_CACHE_DIR)) {
@@ -64,8 +65,15 @@ function minify_css($filepath) {
     $filename = basename($filepath, '.css');
     $mtime = filemtime($fullpath);
     $cachedFile = MINIFY_CACHE_DIR . '/' . $filename . '.' . $mtime . '.min.css';
-    $cachedPath = $baseUrl . 'cache/minified/' . $filename . '.' . $mtime . '.min.css';
-    
+    $cachedFilename = $filename . '.' . $mtime . '.min.css';
+
+    // Pfad: Entweder via serve.php (MIME-Type sicher) oder direkt
+    if (USE_SERVE_PHP) {
+        $cachedPath = $baseUrl . 'cache/serve.php?file=' . urlencode($cachedFilename);
+    } else {
+        $cachedPath = $baseUrl . 'cache/minified/' . $cachedFilename;
+    }
+
     // Wenn Cache existiert, verwende ihn
     if (file_exists($cachedFile)) {
         return $cachedPath;
@@ -106,8 +114,15 @@ function minify_js($filepath) {
     $filename = basename($filepath, '.js');
     $mtime = filemtime($fullpath);
     $cachedFile = MINIFY_CACHE_DIR . '/' . $filename . '.' . $mtime . '.min.js';
-    $cachedPath = $baseUrl . 'cache/minified/' . $filename . '.' . $mtime . '.min.js';
-    
+    $cachedFilename = $filename . '.' . $mtime . '.min.js';
+
+    // Pfad: Entweder via serve.php (MIME-Type sicher) oder direkt
+    if (USE_SERVE_PHP) {
+        $cachedPath = $baseUrl . 'cache/serve.php?file=' . urlencode($cachedFilename);
+    } else {
+        $cachedPath = $baseUrl . 'cache/minified/' . $cachedFilename;
+    }
+
     // Wenn Cache existiert, verwende ihn
     if (file_exists($cachedFile)) {
         return $cachedPath;
