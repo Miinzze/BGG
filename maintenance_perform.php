@@ -4,6 +4,9 @@ require_once 'functions.php';
 
 requireLogin();
 
+// UTF-8 Header setzen für korrekte Umlaut-Darstellung
+header('Content-Type: text/html; charset=UTF-8');
+
 $maintenanceId = $_GET['id'] ?? null;
 $markerId = $_GET['marker_id'] ?? null;
 

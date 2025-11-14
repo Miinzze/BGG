@@ -91,6 +91,8 @@ try {
             PDO::ATTR_EMULATE_PREPARES => false
         ]
     );
+    // Explizit UTF-8 Encoding setzen für korrekte Umlaut-Behandlung
+    $pdo->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
 } catch (PDOException $e) {
     die("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
 }
