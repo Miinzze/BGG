@@ -133,7 +133,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_all_settings']))
         saveSetting('show_geofences_on_map', isset($_POST['show_geofences_on_map']) ? '1' : '0');
         saveSetting('enable_routing', isset($_POST['enable_routing']) ? '1' : '0');
         saveSetting('enforce_geofence_rules', isset($_POST['enforce_geofence_rules']) ? '1' : '0');
-        
+
+        // WICHTIG: Cache löschen damit die Änderungen sofort sichtbar sind!
+        $cache->delete('system_settings');
+
         $settings = getSystemSettings();
         $message = 'Alle Einstellungen gespeichert!';
         $messageType = 'success';
