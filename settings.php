@@ -480,7 +480,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_all_settings']))
                     <h3><i class="fas fa-draw-polygon"></i> Navigation</h3>
 
                     <div class="checkbox-group">
-                        <input type="checkbox" id="enable_routing" name="enable_routing" 
+                        <input type="checkbox" id="enable_routing" name="enable_routing" value="1"
                                <?= ($settings['enable_routing'] ?? '1') === '1' ? 'checked' : '' ?>>
                         <label for="enable_routing">Route zu Markern anzeigen</label>
                     </div>

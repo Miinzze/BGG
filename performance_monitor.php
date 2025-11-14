@@ -56,34 +56,47 @@ $cacheStats = getCacheStats();
 $dbStats = [];
 
 try {
+    // Datenbanknamen aus DSN extrahieren
+    $dbName = DB_NAME; // Aus config.php
+
     // Tabellen-Größen
-    $stmt = $pdo->query("
-        SELECT 
+    $stmt = $pdo->prepare("
+        SELECT
             table_name AS name,
             ROUND(((data_length + index_length) / 1024 / 1024), 2) AS size_mb,
             table_rows AS rows,
             ROUND((index_length / 1024 / 1024), 2) AS index_size_mb
         FROM information_schema.TABLES
-        WHERE table_schema = DATABASE()
+        WHERE table_schema = ?
         AND table_name IN ('markers', 'activity_log', 'maintenance_history', 'users', 'marker_serial_numbers')
         ORDER BY (data_length + index_length) DESC
     ");
-    $dbStats['tables'] = $stmt->fetchAll();
-    
+    $stmt->execute([$dbName]);
+    $tables = $stmt->fetchAll();
+
+    if (!empty($tables)) {
+        $dbStats['tables'] = $tables;
+    }
+
     // Index-Nutzung (nur für wichtige Tabellen)
-    $stmt = $pdo->query("
-        SELECT 
+    $stmt = $pdo->prepare("
+        SELECT
             TABLE_NAME as table_name,
             INDEX_NAME as index_name,
             GROUP_CONCAT(COLUMN_NAME ORDER BY SEQ_IN_INDEX) AS columns
         FROM information_schema.STATISTICS
-        WHERE TABLE_SCHEMA = DATABASE()
+        WHERE TABLE_SCHEMA = ?
         AND TABLE_NAME IN ('markers', 'activity_log', 'maintenance_history')
         GROUP BY TABLE_NAME, INDEX_NAME
         ORDER BY TABLE_NAME, INDEX_NAME
     ");
-    $dbStats['indexes'] = $stmt->fetchAll();
-    
+    $stmt->execute([$dbName]);
+    $indexes = $stmt->fetchAll();
+
+    if (!empty($indexes)) {
+        $dbStats['indexes'] = $indexes;
+    }
+
     // Query-Performance Statistiken
     $stmt = $pdo->query("
         SELECT COUNT(*) as total_queries,
@@ -92,9 +105,10 @@ try {
         WHERE created_at >= DATE_SUB(NOW(), INTERVAL 1 HOUR)
     ");
     $dbStats['recent_activity'] = $stmt->fetch();
-    
+
 } catch (PDOException $e) {
     $dbStats['error'] = $e->getMessage();
+    error_log("Performance Monitor DB Error: " . $e->getMessage());
 }
 
 // System-Performance
@@ -447,11 +461,16 @@ $queryBenchmarks['cached_categories'] = round((microtime(true) - $start) * 1000,
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+            <?php elseif (isset($dbStats['error'])): ?>
+                <div class="alert alert-danger">
+                    <strong>Fehler beim Laden der Datenbank-Statistiken:</strong><br>
+                    <?= htmlspecialchars($dbStats['error']) ?>
+                </div>
             <?php else: ?>
                 <p>Keine Daten verfügbar</p>
             <?php endif; ?>
         </div>
-        
+
         <!-- Database Indexes -->
         <div class="table-container">
             <h3><i class="fas fa-list"></i> Datenbank-Indizes</h3>
@@ -474,11 +493,16 @@ $queryBenchmarks['cached_categories'] = round((microtime(true) - $start) * 1000,
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+            <?php elseif (isset($dbStats['error'])): ?>
+                <div class="alert alert-danger">
+                    <strong>Fehler beim Laden der Index-Statistiken:</strong><br>
+                    <?= htmlspecialchars($dbStats['error']) ?>
+                </div>
             <?php else: ?>
                 <p>Keine Daten verfügbar</p>
             <?php endif; ?>
         </div>
-        
+
         <!-- Performance Recommendations -->
         <div class="table-container">
             <h3><i class="fas fa-lightbulb"></i> Empfehlungen</h3>
