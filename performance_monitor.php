@@ -64,7 +64,7 @@ try {
         SELECT
             table_name AS name,
             ROUND(((data_length + index_length) / 1024 / 1024), 2) AS size_mb,
-            table_rows AS rows,
+            table_rows AS row_count,
             ROUND((index_length / 1024 / 1024), 2) AS index_size_mb
         FROM information_schema.TABLES
         WHERE table_schema = ?
@@ -450,7 +450,7 @@ $queryBenchmarks['cached_categories'] = round((microtime(true) - $start) * 1000,
                                 <td><strong><?= htmlspecialchars($table['name']) ?></strong></td>
                                 <td><?= $table['size_mb'] ?> MB</td>
                                 <td><?= $table['index_size_mb'] ?> MB</td>
-                                <td><?= number_format($table['rows']) ?></td>
+                                <td><?= number_format($table['row_count']) ?></td>
                                 <td>
                                     <?= $indexRatio ?>%
                                     <div class="progress-bar">
@@ -533,7 +533,7 @@ $queryBenchmarks['cached_categories'] = round((microtime(true) - $start) * 1000,
 
                 <?php if (isset($dbStats['tables']) && is_array($dbStats['tables'])): ?>
                     <?php foreach ($dbStats['tables'] as $table): ?>
-                        <?php if ($table['rows'] > 100000 && $table['index_size_mb'] < ($table['size_mb'] * 0.1)): ?>
+                        <?php if ($table['row_count'] > 100000 && $table['index_size_mb'] < ($table['size_mb'] * 0.1)): ?>
                             <li class="status-warning">
                                 ⚠️ Tabelle "<?= $table['name'] ?>" hat viele Zeilen aber wenig Indizes.
                                 Prüfe ob zusätzliche Indizes sinnvoll sind.
